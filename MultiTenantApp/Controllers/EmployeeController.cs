@@ -9,7 +9,7 @@ namespace MultiTenantApp.Controllers
     [ApiController]
     public class EmployeeController : ControllerBase
     {
-        private readonly TenantService _tenantService;
+        private readonly TenantService _tenantService; 
         private readonly ApplicationDbContext _context;
 
         public EmployeeController(TenantService tenantService, ApplicationDbContext context)
