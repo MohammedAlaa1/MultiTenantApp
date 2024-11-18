@@ -19,13 +19,16 @@ namespace MultiTenantApp.Controllers
         }
 
         [HttpPost("create")]
-        public IActionResult CreateEmployee([FromBody] Employee employee)
+        public IActionResult CreateEmployee([FromBody] EmployeeDTO employeeDTO)
         {
 
             try
             {
-                var tenantId = _tenantService.GetTenantId();
-                employee.TenantId = tenantId;
+                var employee = new Employee();
+                employee.EmpName = employeeDTO.Name;
+                //var tenantId = _tenantService.GetTenantId();
+               // employeeDTO.TenantId = tenantId;
+               //employee.TenantId = tenantId;
 
                 _context.Employees.Add(employee);
                 _context.SaveChanges();
@@ -43,9 +46,9 @@ namespace MultiTenantApp.Controllers
 
             try
             {
-                var tenantId = _tenantService.GetTenantId();
+                //var tenantId = _tenantService.GetTenantId();
 
-                var employee = _context.Employees.FirstOrDefault(e => e.Id == id && e.TenantId == tenantId);
+                var employee = _context.Employees.FirstOrDefault(e => e.Id == id);
 
                 if (employee == null)
                 {

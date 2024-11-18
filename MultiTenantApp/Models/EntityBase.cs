@@ -2,6 +2,7 @@
 {
     public class EntityBase
     {
+
         public string TenantId { get; set; }
     }
 }

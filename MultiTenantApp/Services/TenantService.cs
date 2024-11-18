@@ -14,7 +14,7 @@ namespace MultiTenantApp.Services
 
         public string GetTenantId()
         {
-            var tenantId = _httpContextAccessor.HttpContext?.Request.Headers["X-Tenant_ID"];
+            var tenantId = _httpContextAccessor.HttpContext?.Request.Headers["x-tenant-id"];
 
             if (string.IsNullOrEmpty(tenantId))
             {
